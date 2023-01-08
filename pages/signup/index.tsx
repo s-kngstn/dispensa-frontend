@@ -4,7 +4,7 @@ import Button from "../../src/components/ui/Button/Button";
 import { useForm } from "react-hook-form";
 import Input from "../../src/components/ui/Forms/Input";
 import ErrorMessage from "../../src/components/ui/Errors/ErrorMessage";
-import { emailValidator } from "../../libs/emailValidator";
+import { EMAIL_VALIDATOR } from "../../libs/validationRules";
 
 export default function SignUp() {
   const {
@@ -111,7 +111,7 @@ export default function SignUp() {
                     placeholder="Email"
                     {...register("email", {
                       required: true,
-                      pattern: emailValidator,
+                      pattern: EMAIL_VALIDATOR,
                     })}
                   />
                   {errors.email && <ErrorMessage message="Email is required" />}
@@ -168,9 +168,6 @@ export default function SignUp() {
                       },
                     })}
                   />
-                  {errors.password?.type === "required" && (
-                    <ErrorMessage message="Password is required" />
-                  )}
                   {errors.password_repeat && (
                     <ErrorMessage message={errors.password_repeat.message} />
                   )}
