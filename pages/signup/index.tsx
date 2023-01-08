@@ -27,7 +27,7 @@ export default function SignUp() {
         />
       </Head>
       <div className="flex h-screen flex-col justify-center py-12 sm:px-6 lg:px-8 bg-dispensa-off-white">
-        <h1 className="text-black text-center text-5xl font-extrabold tracking-wider">
+        <h1 className="bg-gradient-to-r from-dispensa-orange to-dispensa-secondary text-transparent bg-clip-text text-center font-extrabold tracking-wider text-5xl">
           DISPENSA
         </h1>
 

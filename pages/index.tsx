@@ -14,9 +14,12 @@ export default function Home() {
         />
       </Head>
       <div className="flex h-screen flex-col justify-center py-12 sm:px-6 lg:px-8 bg-dispensa-off-white">
-        <h1 className="text-black text-center text-5xl font-extrabold tracking-wider">
+        {/* <h1 className="text-black text-center text-5xl font-extrabold tracking-wider"> */}
+        <h1 className="bg-gradient-to-r from-dispensa-orange to-dispensa-secondary text-transparent bg-clip-text text-center font-extrabold tracking-wider text-5xl">
           DISPENSA
         </h1>
+        {/* DISPENSA
+        </h1> */}
 
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           {/* logo go here */}

@@ -190,8 +190,10 @@ export default function PageWrapper({
                 alt="Your Company"
               /> */}
               <span className="text-black text-2xl font-extrabold tracking-wider">
+                {/* <span className="bg-gradient-to-r from-dispensa-secondary to-dispensa-orange text-transparent bg-clip-text font-extrabold tracking-wider text-2xl"> */}
                 DISPENSA
               </span>
+              {/* </span> */}
             </div>
             {/* ////////////////////////////////////////////////////////////////// */}
             {/* /////////////// Static sidebar Menu for desktop ////////////////// */}
