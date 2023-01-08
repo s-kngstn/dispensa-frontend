@@ -14,6 +14,7 @@ import {
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import capitalize from "../../../libs/capitalize";
 
 // How can I make all the routes after dashboard still keep the active tag on dashboards
 // How can I make the active tag on the current page
@@ -317,7 +318,7 @@ export default function PageWrapper({
             <div className="py-6">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
                 <h1 className="text-2xl font-semibold text-gray-900">
-                  Dashboard
+                  {capitalize(router.asPath.split("/")[1])}
                 </h1>
               </div>
               <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
