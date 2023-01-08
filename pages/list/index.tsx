@@ -1,11 +1,33 @@
+import { useState } from "react";
 import PageWrapper from "../../src/components/PageWrapper/PageWrapper";
 import Button from "../../src/components/ui/Button/Button";
+import { PlusIcon } from "@heroicons/react/24/outline";
+import Item from "../../src/ShoppingList/Item";
+
+const shoppingList = [
+  {
+    name: "Oat milk",
+    dateAdded: "2023-01-05",
+    location: "Pantry",
+  },
+  {
+    name: "Sourdough Bread",
+    dateAdded: "2023-01-05",
+    location: "Pantry",
+  },
+  {
+    name: "Pesto",
+    dateAdded: "2023-01-01",
+    location: "Pantry",
+  },
+  // More people...
+];
 
 export default function ShoppingList() {
   return (
     <PageWrapper>
       <div>
-        <div className="sm:flex sm:items-center">
+        <div className="sm:flex sm:items-center mb-4">
           <div className="sm:flex-auto">
             <h1 className="text-xl font-semibold text-gray-900">
               Shopping List
@@ -15,95 +37,36 @@ export default function ShoppingList() {
             </p>
           </div>
           <div className="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-            <Button text="Add to list" />
+            <Button text="Add item" />
           </div>
         </div>
-        <div className="mt-8 flex flex-col">
-          <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
-                <table className="min-w-full divide-y divide-gray-300">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
-                      >
-                        Name
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                      >
-                        Title
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                      >
-                        Email
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                      >
-                        Role
-                      </th>
-                      <th
-                        scope="col"
-                        className="relative py-3.5 pl-3 pr-4 sm:pr-6"
-                      >
-                        <span className="sr-only">Edit</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white">
-                    {people.map((person, personIdx) => (
-                      <tr
-                        key={person.email}
-                        className={
-                          personIdx % 2 === 0 ? undefined : "bg-gray-50"
-                        }
-                      >
-                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                          {person.name}
-                        </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                          {person.title}
-                        </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                          {person.email}
-                        </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                          {person.role}
-                        </td>
-                        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                          <a
-                            href="#"
-                            className="text-dispensa-orange hover:opacity-75"
-                          >
-                            Edit<span className="sr-only">, {person.name}</span>
-                          </a>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+        <div className="border-black border-3 rounded-md">
+          <div className="flex flex-1 justify-between p-4 border-b-3 border-black">
+            <div className="flex flex-1">
+              <form className="flex w-full md:ml-0" action="#" method="GET">
+                <label htmlFor="text" className="sr-only">
+                  Add item
+                </label>
+                <div className="relative w-full text-black focus-within:text-black">
+                  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
+                    <PlusIcon className="h-6 w-6" aria-hidden="true" />
+                  </div>
+                  <input
+                    id="text"
+                    className="block h-full w-full border-transparent py-2 pl-8 pr-4 bg-dispensa-off-white text-black placeholder-black font-semibold focus:border-transparent focus:placeholder-gray-500 focus:outline-none focus:ring-0 sm:text-md"
+                    placeholder="Add"
+                    type="text"
+                    name="text"
+                  />
+                </div>
+              </form>
             </div>
           </div>
+          {shoppingList.map((item, index) => {
+            return <Item key={index} item={item} />;
+          })}
         </div>
       </div>
     </PageWrapper>
   );
 }
-
-const people = [
-  {
-    name: "Lindsay Walton",
-    title: "Front-end Developer",
-    email: "lindsay.walton@example.com",
-    role: "Member",
-  },
-  // More people...
-];
