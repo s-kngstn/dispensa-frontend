@@ -168,6 +168,9 @@ export default function SignUp() {
                       },
                     })}
                   />
+                  {errors.password?.type === "required" && (
+                    <ErrorMessage message="Password is required" />
+                  )}
                   {errors.password_repeat && (
                     <ErrorMessage message={errors.password_repeat.message} />
                   )}
